@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kondisi Kualitas Udara</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='air_quality_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Kondisi Kualitas Udara Anda Sekarang</h1>
+        {% if air_quality %}
+            <div class="card">
+                <div class="card-header {{ get_quality_class(air_quality.aqi) }}">
+                    <h2 class="card-title">Kualitas Udara / AQI : {{ air_quality.aqi }}</h2>
+                </div>
+                <div class="category {{ get_quality_class(air_quality.aqi) }}">
+                    <p>{{ get_quality_text(air_quality.aqi) }}</p>
+                </div>
+                <div class="card-body">
+                    <div class="parameters">
+                        <div class="parameter">
+                            <p>PM10 : {{ air_quality.pm10 }} µg/m³</p>
+                        </div>
+                        <div class="parameter">
+                            <p>PM2.5 : {{ air_quality.pm25 }} µg/m³</p>
+                        </div>
+                        <div class="parameter">
+                            <p>O3 : {{ air_quality.o3 }} µg/m³</p>
+                        </div>
+                        <div class="parameter">
+                            <p>SO2 : {{ air_quality.so2 }} µg/m³</p>
+                        </div>
+                        <div class="parameter">
+                            <p>CO : {{ air_quality.co }} µg/m³</p>
+                        </div>
+                        <div class="parameter">
+                            <p>NO2 : {{ air_quality.no2 }} µg/m³</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact">
+                    <h2>Dampak Kualitas Udara</h2>
+                    <p>
+                        Berdasarkan parameter di atas, dampaknya adalah
+                        {% if air_quality.aqi <= 50 %}
+                            Kualitas udara dianggap baik, tidak ada dampak kesehatan yang signifikan.
+                        {% elif air_quality.aqi <= 100 %}
+                            Kualitas udara sedang, orang-orang yang sangat peka terhadap polusi udara mungkin mengalami efek yang sedikit.
+                        {% elif air_quality.aqi <= 150 %}
+                            Kualitas udara tidak sehat bagi kelompok sensitif, mungkin ada efek kesehatan pada orang yang sensitif terhadap polusi udara.
+                        {% elif air_quality.aqi <= 200 %}
+                            Kualitas udara sangat tidak sehat, dapat mempengaruhi semua orang, terutama kelompok sensitif.
+                        {% else %}
+                            Kualitas udara berbahaya, krisis kesehatan yang signifikan pada semua orang.
+                        {% endif %}
+                    </p>
+                    <h2>Upaya yang Bisa Dilakukan</h2>
+                    <ul>
+                        <li>Kurangi penggunaan kendaraan pribadi, gunakan transportasi umum atau sepeda.</li>
+                        <li>Kurangi penggunaan produk yang menghasilkan polutan.</li>
+                        <li>Tingkatkan efisiensi energi di rumah dan kantor.</li>
+                        <li>Perbanyak taman kota dan area hijau untuk menyaring udara.</li>
+                        <li>Gunakan masker atau perangkat penjaga udara saat perlu.</li>
+                    </ul>
+                </div>
+            </div>
+        {% else %}
+            <p>{{ error }}</p>
+        {% endif %}
+        <br>
+        <a href="/" class="button"><i class="fas fa-arrow-left"></i> Kembali</a>
+    </div>
+</body>
+</html>

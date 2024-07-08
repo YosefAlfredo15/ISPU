@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Air Quality in Jakarta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Current Air Quality in Surabaya</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>PM10</td>
+                <td>{{ air_quality.pm10 }}</td>
+            </tr>
+            <tr>
+                <td>PM25</td>
+                <td>{{ air_quality.pm25 }}</td>
+            </tr>
+            <tr>
+                <td>O3</td>
+                <td>{{ air_quality.o3 }}</td>
+            </tr>
+            <tr>
+                <td>SO2</td>
+                <td>{{ air_quality.so2 }}</td>
+            </tr>
+            <tr>
+                <td>NO2</td>
+                <td>{{ air_quality.no2 }}</td>
+            </tr>
+            <tr>
+                <td>CO</td>
+                <td>{{ air_quality.co }}</td>
+            </tr>
+            <tr>
+                <td>AQI</td>
+                <td>{{ air_quality.aqi }}</td>
+            </tr>
+        </table>
+    {% endif %}
+</body>
+</html>

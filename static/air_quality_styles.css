@@ -1,0 +1,165 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2e3b4e;
+    margin: 0;
+    padding: 0;
+    font-size: 18px; /* Increased base font size */
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 32px; /* Increased heading font size */
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 32px; /* Increased title font size */
+    font-weight: bold;
+}
+
+.category {
+    margin: 10px 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px; /* Increased quality text font size */
+    text-align: center;
+    color: white; /* Set text color to white */
+}
+
+.baik {
+    background-color: #a3e48e; /* Green for good air quality */
+}
+
+.sedang {
+    background-color: #86a6df; /* Blue for moderate air quality */
+}
+
+.tidak-sehat {
+    background-color: #f7cc5f; /* Yellow for unhealthy for sensitive groups */
+}
+
+.sangat-tidak-sehat {
+    background-color: #f37c65; /* Red for unhealthy */
+}
+
+.berbahaya {
+    background-color: #d43f3f; /* Dark red for hazardous */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.parameters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.parameter {
+    flex: 1 1 calc(50% - 20px);
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.parameter p {
+    margin: 5px 0;
+    font-size: 18px; /* Increased parameter font size */
+}
+
+.impact {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.impact h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 24px; /* Increased impact section heading font size */
+}
+
+.impact p {
+    font-size: 18px; /* Increased impact section font size */
+    line-height: 1.6;
+    color: #666;
+}
+
+.impact ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: #666;
+    font-size: 18px; /* Increased impact section list font size */
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    font-size: 18px; /* Increased button font size */
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.button i {
+    margin-right: 5px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .card {
+        margin-bottom: 10px;
+    }
+    
+    .parameters {
+        flex-direction: column;
+    }
+    
+    .parameter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

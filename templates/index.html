@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Indeks Standar Pencemar Udara</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_styles.css') }}">
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById('latitude').value = position.coords.latitude;
+            document.getElementById('longitude').value = position.coords.longitude;
+            document.getElementById('locationForm').submit();
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("Pengguna menolak permintaan Geolokasi.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Informasi lokasi tidak tersedia.");
+                    break;
+                case error.TIMEOUT:
+                    alert("Waktu permintaan untuk mendapatkan lokasi pengguna telah habis.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Terjadi kesalahan yang tidak diketahui.");
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediksi Indeks Standar Pencemar Udara</h1>
+        <p>Aplikasi ini digunakan untuk memberi hasil prediksi indeks kualitas udara secara real-time berdasarkan Lokasi</p>
+        <p>Kualitas udara terbagi menjadi 4 kategori, yakni:</p>
+        <div class="category baik">Baik</div>
+        <div class="category sedang">Sedang</div>
+        <div class="category tidak-sehat">Tidak Sehat</div>
+        <div class="category sangat-tidak-sehat">Sangat Tidak Sehat</div>
+        <form id="cityForm" action="/" method="POST">
+            <label for="city">Masukkan Nama Kota di Indonesia :</label>
+            <input type="text" id="city" name="city" class="input-text" placeholder="Masukkan nama kota..." required>
+            <br>
+            <button type="submit" class="button">Cek Kondisi Saat Ini</button>
+        </form>
+        <br>
+        <form id="locationForm" action="/" method="POST">
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <button type="button" class="button" onclick="getLocation()">Gunakan Lokasi Sekarang</button>
+        </form>
+    </div>
+</body>
+</html>
