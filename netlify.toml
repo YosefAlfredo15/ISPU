@@ -3,7 +3,7 @@
   command = "bash build.sh"
 
 [build.environment]
-  VIRTUAL_ENV_PATH = "/opt/buildhome/python-3.8.13/bin/activate"
+  VIRTUAL_ENV_PATH = "/opt/buildhome/python-3.8/bin/activate"
 
 [[redirects]]
   from = "/*"
