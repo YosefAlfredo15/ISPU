@@ -1,0 +1,11 @@
+[build]
+  publish = "build"
+  command = "bash build.sh"
+
+[build.environment]
+  VIRTUAL_ENV_PATH = "/opt/buildhome/python-3.8.13/bin/activate"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
